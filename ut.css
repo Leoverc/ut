@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center; /* Centrer le contenu */
+    margin-top: 50px; /* Marge supérieure pour espacer du haut */
+}
+
+h1 {
+    color: #333;
+}
+
+img {
+    width: 100px; /* Ajuster la taille du logo selon vos besoins */
+    height: auto;
+    margin-bottom: 20px; /* Espacement entre le logo et le titre */
+}
