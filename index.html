@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Inclure le fichier CSS -->
 </head>
 <body>
-    <h1>Bienvenue sur notre jeu !</h1>
-    <p>Cliquez sur le bouton ci-dessous pour lancer le jeu :</p>
-    <button onclick="lancerJeu()">Lancer le jeu</button>
-
+    <div class="container">
+        <img src="logo.png" alt="Logo"> <!-- Ajouter l'image du logo -->
+        <h1>Bienvenue sur notre jeu !</h1>
+        <p>Cliquez sur le bouton ci-dessous pour lancer le jeu :</p>
+        <button onclick="lancerJeu()">Lancer le jeu</button>
+    </div>
+    
     <script>
         function lancerJeu() {
             // Redirection vers la page index.html
