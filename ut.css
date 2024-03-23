@@ -19,3 +19,9 @@ img {
     height: auto;
     margin-bottom: 20px; /* Espacement entre le logo et le titre */
 }
+
+button {
+    width: 150px; /* Largeur du bouton */
+    height: 40px; /* Hauteur du bouton */
+    font-size: 16px; /* Taille de la police du texte du bouton */
+}
