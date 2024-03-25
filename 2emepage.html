@@ -6,18 +6,6 @@
     <title>Jeu Mastermind</title>
 </head>
 <body>
-    <table id="tableTentatives" border="1">
-        <thead>
-            <tr>
-                <th>Tentative</th>
-                <th>Résultat</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Cette partie sera remplie par JavaScript -->
-        </tbody>
-    </table>
-    <script>
         const v = [2,0,3,5];
         let n = [];
         let r = 0;
@@ -54,30 +42,13 @@
                 alert("Gagné ! Vous avez trouvé la solution : 2035");
                 break;
             } else {
-                tableTentatives.forEach(rows =>{ console.log( tableTentatives.row)}
                 alert("Il y a " + e + " bon(s) chiffre(s), dont " + r + " chiffre(s) à la bonne place\nLe jeu va continuer");
             }
-            tentatives.push({ tentative: c, bonChiffre: e, bonnePlace: r });
-            updateTableTentatives();
             
             r = 0;
             n = [];
             e = 0;
             z = 0;
-        }
-        function updateTableTentatives() {
-            const tableBody = document.querySelector('#tableTentatives tbody');
-            tableBody.innerHTML = '';
-            tentatives.forEach(c => {
-                const tr = document.createElement('tr');
-                const tdTentative = document.createElement('td');
-                tdTentative.textContent = c.tentative;
-                const tdResultat = document.createElement('td');
-                tdResultat.textContent = `${c.bonChiffre} bon(s) chiffre(s), ${c.bonnePlace} à la bonne place`;
-                tr.appendChild(tdTentative);
-                tr.appendChild(tdResultat);
-                tableBody.appendChild(tr);
-            });
         }
     </script>
 </body>
