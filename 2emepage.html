@@ -6,50 +6,68 @@
     <title>Jeu Mastermind</title>
 </head>
 <body>
+    <h1>Jeu Mastermind</h1>
+    
+    <table id="tableTentatives" border="1">
+        <thead>
+            <tr>
+                <th>Tentative</th>
+                <th>Résultat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Cette partie sera remplie par JavaScript -->
+        </tbody>
+    </table>
+    
     <script>
-        const v = [2, 0, 3, 5];
-        let n = [];
-        let r = 0;
-        let e = 0;
-        let z = 0;
-        
-        while (r > -1) {
-            let c = prompt("Entrez une série de 4 chiffres entre 0 et 9 comme 5961 : ");
-            while (!c.match(/^\d{4}$/)) {
-                c = prompt("ERREUR !! Entrez une série de 4 chiffres entre 0 et 9 comme 5961 : ");
+        const solution = [2, 0, 3, 5];
+        let tentatives = [];
+        let indiceTentative = 1;
+
+        while (true) {
+            let tentative = prompt("Entrez une série de 4 chiffres entre 0 et 9 comme 5961 : ");
+            while (!tentative.match(/^\d{4}$/)) {
+                tentative = prompt("ERREUR !! Entrez une série de 4 chiffres entre 0 et 9 comme 5961 : ");
             }
             
-            n = c.split('').map(Number);
+            let chiffres = tentative.split('').map(Number);
             
-            console.log(n);
-            
-            v.forEach(j => {
-                n.forEach(k => {
-                    if (j === k) {
-                        z = 1;
-                    }
-                });
-                e += z;
-                z = 0;
-            });
-            
-            for (let i = 0; i < 4; i++) {
-                if (v[i] === n[i]) {
-                    r++;
+            let bonChiffre = 0;
+            let bonnePlace = 0;
+
+            solution.forEach((chiffreSolution, index) => {
+                if (chiffres[index] === chiffreSolution) {
+                    bonnePlace++;
+                } else if (chiffres.includes(chiffreSolution)) {
+                    bonChiffre++;
                 }
-            }
-            
-            if (r === 4) {
-                alert("Gagné vous avez trouvé l'indice recherché:  2035");
+            });
+
+            if (bonnePlace === 4) {
+                alert("Gagné ! Vous avez trouvé la solution : 2035");
                 break;
             } else {
-                alert("Il y a " + e + " bon(s) chiffre(s), dont " + r + " chiffre(s) à la bonne place\nLe jeu va continuer");
+                alert("Il y a " + bonChiffre + " bon(s) chiffre(s), dont " + bonnePlace + " chiffre(s) à la bonne place.\nLe jeu va continuer.");
             }
-            
-            r = 0;
-            n = [];
-            e = 0;
-            z = 0;
+
+            tentatives.push({ tentative: tentative, bonChiffre: bonChiffre, bonnePlace: bonnePlace });
+            updateTableTentatives();
+        }
+
+        function updateTableTentatives() {
+            const tableBody = document.querySelector('#tableTentatives tbody');
+            tableBody.innerHTML = '';
+            tentatives.forEach(tentative => {
+                const tr = document.createElement('tr');
+                const tdTentative = document.createElement('td');
+                tdTentative.textContent = tentative.tentative;
+                const tdResultat = document.createElement('td');
+                tdResultat.textContent = `${tentative.bonChiffre} bon(s) chiffre(s), ${tentative.bonnePlace} à la bonne place`;
+                tr.appendChild(tdTentative);
+                tr.appendChild(tdResultat);
+                tableBody.appendChild(tr);
+            });
         }
     </script>
 </body>
