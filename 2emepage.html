@@ -3,45 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeu Mastermind</title>
+    <title>Ajout d'éléments dans un tableau</title>
 </head>
 <body>
-    <div id="consoleContent"></div>
+    <h2>Ajout d'éléments dans un tableau</h2>
+
+    <label for="inputNumber">Entrez un nombre :</label>
+    <input type="number" id="inputNumber">
+    <button onclick="ajouterElement()">Ajouter</button>
+
+    <table id="tableauElements" border="1">
+        <thead>
+            <tr>
+                <th>Tentative</th>
+                <th>Résultat</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyElements">
+            <!-- Contenu du tableau sera ajouté ici -->
+        </tbody>
+    </table>
 
     <script>
-        function afficherConsole() {
-            const consoleContent = document.getElementById('consoleContent');
-            const oldLog = console.log;
-
-            // Redirigez les messages de la console vers la div
-            console.log = function(message) {
-                if (typeof message == 'object') {
-                    consoleContent.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
-                } else {
-                    consoleContent.innerHTML += message + '<br />';
-                }
-            }
-        }
-
-        const v = [2,0,3,5];
+		const v = [2,0,3,5];
         let n = [];
         let r = 0;
         let e = 0;
         let z = 0;
-        let g = [];
-        
-        while (r > -1) {
-            let c = prompt("Entrez une série de 4 chiffres entre 0 et 9 comme 6519 : ");
-            while (!c.match(/^\d{4}$/)) {
-                c = prompt("Erreur : Entrez une série de 4 chiffres entre 0 et 9 comme 6519 : ");
+        function ajouterElement() {
+            // Récupérer le nombre saisi par l'utilisateur
+            const nombre = document.getElementById('inputNumber').valueAsNumber;
+			
+			const nombreString = nombre.toString();
+
+            // Si le nombre est vide ou invalide, ne rien faire
+            if (isNaN(nombre)||nombreString.length !== 4) {
+                alert("Veuillez saisir un nombre valide.");
+				// Effacer le champ de saisie après l'ajout
+				document.getElementById('inputNumber').value = '';
+                return;
             }
-            
-            n = c.split('').map(Number);
-            console.log(n)
-            
-           
-            
-            v.forEach(j => {
+			const nbch = nombre.toString()
+			n = nbch.split('').map(Number);
+			
+			v.forEach(j => {
                 n.forEach(k => {
                     if (j === k) {
                         z = 1;
@@ -57,18 +62,41 @@
                 }
             }
             
-            if (r === 4) {
-                alert("Gagné ! Vous avez trouvé la solution : 2035");
-                break;
+           
+
+            // Créer un nouvel élément de ligne dans le tableau
+            const nouvelleLigne = document.createElement('tr');
+
+            // Créer une cellule pour le nombre
+            const celluleNombre = document.createElement('td');
+            celluleNombre.textContent = nombre;
+
+            // Créer une cellule pour le résultat (nombre * 2)
+            const celluleResultat = document.createElement('td');
+			            if (r === 4) {
+                celluleResultat.textContent ="GAGNE !!!";
             } else {
                 
-                alert("Il y a " + e + " bon(s) chiffre(s), dont " + r + " chiffre(s) à la bonne place\nLe jeu va continuer");
+                celluleResultat.textContent ="Il y a " + e + " bon(s) chiffre(s), dont " + r + " chiffre(s) à la bonne place" ;
             }
-            
-            r = 0;
+
+            // Ajouter les cellules à la ligne
+            nouvelleLigne.appendChild(celluleNombre);
+            nouvelleLigne.appendChild(celluleResultat);
+
+            // Ajouter la nouvelle ligne au tableau
+            document.getElementById('tbodyElements').appendChild(nouvelleLigne);
+			
+			r = 0;
             n = [];
             e = 0;
             z = 0;
+
+            // Effacer le champ de saisie après l'ajout
+            document.getElementById('inputNumber').value = '';
+			
+			
+			
         }
     </script>
 </body>
