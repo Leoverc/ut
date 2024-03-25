@@ -31,6 +31,7 @@
         let g = [];
         
         while (r > -1) {
+            afficherConsole();
             let c = prompt(afficherConsole()+"Entrez une série de 4 chiffres entre 0 et 9 comme 6519 : ");
             while (!c.match(/^\d{4}$/)) {
                 c = prompt("Erreur : Entrez une série de 4 chiffres entre 0 et 9 comme 6519 : ");
