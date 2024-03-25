@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master mind</title>
-    <link rel="stylesheet" href="ut.css"> <!-- Inclure le fichier CSS -->
+    <title>Ajout d'éléments dans un tableau</title>
+	<link rel="stylesheet" href="ut.css"> <!-- Inclure le fichier CSS -->
 </head>
-<body>
-    <div class="container">
-	    <h1>Master Mind</h1>
-	
-	    <label for="inputNumber">Entrez un nombre :</label>
-	    <input type="number" id="inputNumber">
-	    <button onclick="ajouterElement()">Ajouter</button>
-	
-	    <table id="tableauElements" border="1">
-	        <thead>
-	            <tr>
-	                <th>Tentative</th>
-	                <th>Résultat</th>
-	            </tr>
-	        </thead>
-	        <tbody id="tbodyElements">
-	            <!-- Contenu du tableau sera ajouté ici -->
-	        </tbody>
-	    </table>
-    </div>
+	<div class="container">
+		<img src="ut.jpg" alt="Logo"> <!-- Ajouter l'image du logo -->
+		<h1>Master Mind</h1>
+		<p>Entrez un nombre entre 0 et 9 comme 1490 :</p>
+		<input type="number" id="inputNumber">
+		<br> 
+		<button onclick="ajouterElement()">Essayer</button>
+		<table id="tableauElements" border="1">
+			<thead>
+				<tr>
+					<th>Tentative</th>
+					<th>Résultat</th>
+				</tr>
+			</thead>
+			<tbody id="tbodyElements">
+				<!-- Contenu du tableau sera ajouté ici -->
+			</tbody>
+		</table>
+	</div>
 
     <script>
 		const v = [2,0,3,5];
@@ -41,7 +40,7 @@
 
             // Si le nombre est vide ou invalide, ne rien faire
             if (isNaN(nombre)||nombreString.length !== 4) {
-                alert("Veuillez saisir un nombre valide.");
+                alert("ERREUR !!! Entrez un nombre entre 0 et 9 comme 1490");
 				// Effacer le champ de saisie après l'ajout
 				document.getElementById('inputNumber').value = '';
                 return;
