@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     padding: 0;
@@ -15,13 +16,26 @@ h1 {
 }
 
 img {
-    width: 300px; /* Ajuster la taille du logo selon vos besoins */
+    width: 80px; /* Ajuster la taille du logo selon vos besoins */
     height: auto;
-    margin-bottom: 20px; /* Espacement entre le logo et le titre */
+    margin-bottom: 10px; /* Espacement entre le logo et le titre */
+	margin-top: 10px;
+	margin-left: auto;
+    margin-right: auto;
 }
 
 button {
+	margin-top: 10px;
     width: 150px; /* Largeur du bouton */
     height: 40px; /* Hauteur du bouton */
     font-size: 16px; /* Taille de la police du texte du bouton */
 }
+
+table {
+    /* Autres styles de votre tableau */
+    margin-top: 20px; /* Espacement entre le logo et le titre */
+	margin-left: auto;
+    margin-right: auto;
+	background-color: white;
+}
+
