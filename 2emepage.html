@@ -25,9 +25,9 @@
         let z = 0;
         
         while (r > -1) {
-            let c = prompt(tableTentatives+"Entrez une série de 4 chiffres entre 0 et 9 comme 6519 : ");
+            let c = prompt(+tableTentatives+"Entrez une série de 4 chiffres entre 0 et 9 comme 6519 : ");
             while (!c.match(/^\d{4}$/)) {
-                c = prompt(tableTentatives+"Erreur : Entrez une série de 4 chiffres entre 0 et 9 comme 6519 : ");
+                c = prompt(+tableTentatives+"Erreur : Entrez une série de 4 chiffres entre 0 et 9 comme 6519 : ");
             }
             
             n = c.split('').map(Number);
