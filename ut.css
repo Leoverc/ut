@@ -16,7 +16,7 @@ h1 {
 }
 
 img {
-    width: 80px; /* Ajuster la taille du logo selon vos besoins */
+    width: 150px; /* Ajuster la taille du logo selon vos besoins */
     height: auto;
     margin-bottom: 10px; /* Espacement entre le logo et le titre */
 	margin-top: 10px;
@@ -25,7 +25,7 @@ img {
 }
 
 button {
-	margin-top: 10px;
+	margin-top: 20px;
     width: 150px; /* Largeur du bouton */
     height: 40px; /* Hauteur du bouton */
     font-size: 16px; /* Taille de la police du texte du bouton */
