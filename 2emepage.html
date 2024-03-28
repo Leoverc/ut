@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajout d'éléments dans un tableau</title>
-	<link rel="stylesheet" href="ut.css"> <!-- Inclure le fichier CSS -->
+	<link rel="stylesheet" href="C:\Users\leona\python\utc\ut.css"> <!-- Inclure le fichier CSS -->
 </head>
 	<div class="container">
-		<img src="ut.jpg" alt="Logo"> <!-- Ajouter l'image du logo -->
+		<img src="C:\Users\leona\python\utc\ut.jpg" alt="Logo"> <!-- Ajouter l'image du logo -->
 		<h1>Master Mind</h1>
-		<p>Entrez un nombre entre 0 et 9 comme 1490 :</p>
-		<input type="number" id="inputNumber">
+		<p>Entrez un nombre entre 0 et 9 de 4 chiffres comme 1490 :</p>
 		<br> 
-		<button onclick="ajouterElement()">Essayer</button>
+		<input id="inputNumber" onkeydown="if (event.keyCode===13) document.getElementById('button').click();"/>
+		<br> 
+		<button id="button" onclick="ajouterElement()">Essayer</button>
 		<table id="tableauElements" border="1">
 			<thead>
 				<tr>
@@ -22,25 +23,41 @@
 			</thead>
 			<tbody id="tbodyElements">
 				<!-- Contenu du tableau sera ajouté ici -->
+				<tr>
+					<td>1254</td>
+					<td>Il y a 2 bon(s) chiffre(s), dont 0 chiffre(s) à la bonne place</td>
+				</tr>
+				<tr>
+					<td>4065</td>
+					<td>Il y a 2 bon(s) chiffre(s), dont 2 chiffre(s) à la bonne place</td>
+				</tr>
+				
 			</tbody>
 		</table>
 	</div>
 
     <script>
+		const a = [1,4,9,0];
+		const t = [3,0,1,4];
+		const y = [8,1,9,2];
+		const u = [2,8,5,0];
+		const i = [7,5,2,1];
+		const o = [2,6,3,2];
+		const p = [7,8,4,5];
 		const v = [2,0,3,5];
         let n = [];
+		let na = [];
         let r = 0;
         let e = 0;
         let z = 0;
         function ajouterElement() {
             // Récupérer le nombre saisi par l'utilisateur
-            const nombre = document.getElementById('inputNumber').valueAsNumber;
-			
-			const nombreString = nombre.toString();
+             nombre = document.getElementById('inputNumber').value;
+			console.log(nombre);
 
             // Si le nombre est vide ou invalide, ne rien faire
-            if (isNaN(nombre)||nombreString.length !== 4) {
-                alert("ERREUR !!! Entrez un nombre entre 0 et 9 comme 1490");
+            if (isNaN(nombre)||nombre.length !== 4) {
+                alert("ERREUR !!! Entrez un nombre de 4 chiffres entre 0 et 9 comme 1490");
 				// Effacer le champ de saisie après l'ajout
 				document.getElementById('inputNumber').value = '';
                 return;
