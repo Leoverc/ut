@@ -94,6 +94,9 @@
             const celluleResultat = document.createElement('td');
 			            if (r === 4) {
                 celluleResultat.textContent ="GAGNE !!!";
+				setTimeout(function() {
+				window.location.href="ut.jpg";
+				}, 5000);
             } else {
                 
                 celluleResultat.textContent ="Il y a " + e + " bon(s) chiffre(s), dont " + r + " chiffre(s) à la bonne place" ;
