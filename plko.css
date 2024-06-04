@@ -12,6 +12,9 @@ body {
 body.show-notification {
     background-color: black;
 }
+h1 {
+    margin-top: 20px; /* ajustez cette valeur pour un espace vertical personnalisé */
+}
 #joystick-container {
     display: flex;
     justify-content: center;
