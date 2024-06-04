@@ -14,7 +14,7 @@ body.show-notification {
 }
 h1 {
     margin-top: 5px; /* ajustez cette valeur pour un espace vertical personnalisé */
-	position: absolute;
+	position: relative;
 }
 #joystick-container {
     display: flex;
