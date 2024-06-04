@@ -13,8 +13,8 @@ body.show-notification {
     background-color: black;
 }
 h1 {
-    margin-top: 5px; /* ajustez cette valeur pour un espace vertical personnalisé */
-	position: relative;
+    margin-top: -300px; /* ajustez cette valeur pour un espace vertical personnalisé */
+	position: absolute;
 }
 #joystick-container {
     display: flex;
