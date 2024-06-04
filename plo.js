@@ -91,7 +91,7 @@ function showNotificationImage() {
 		document.body.classList.remove('show-notification');
     }, 1500); // Hide the image after 5 seconds
 	if (a==1){
-		let b = getRandomNumber(10000, 1000000);
+		let b = getRandomNumber(100000, 10000000);
 		console.log(b);
 		setTimeout(() => {
 			showNotificationImage()
